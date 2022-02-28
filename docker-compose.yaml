@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+  postgres_db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:  
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: verifications
+      POSTGRES_USER: root
+    ports:  
+      - 5433:5432
+    volumes:
+      - ./db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./db/data:/var/lib/postgresql/data
+  
+ # postgres_ruby_api:
+ #   image: verification_api
+ #   container_name: verification_api
+ #  ports:
+ #    - 9292:9292
+
+networks:
+  app-net:
+    driver: bridge
