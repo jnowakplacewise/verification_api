@@ -34,7 +34,7 @@ module API
 
       query = db_handler.insert_card(card)
 
-      query
+      result
     end
 
     get :all do
