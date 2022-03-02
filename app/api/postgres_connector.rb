@@ -9,8 +9,8 @@ module API
         adapter: 'postgres',
         user: 'root',
         password: 'password',
-        host: '0.0.0.0',
-        port: '5433',
+        host: 'postgres_db',
+        port: '5432',
         database: 'verifications'
       )
     end
@@ -25,7 +25,7 @@ module API
     def insert_card(hash_query)
       @database[@table].insert(hash_query)
     rescue Sequel::UniqueConstraintViolation
-      @database[@table].where(card_code: hash_query[:card_code])
+      @database[@table].where(card_code: hash_query[:card_code]).map { |row| row }
     end
 
     def get_all

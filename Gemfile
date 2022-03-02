@@ -3,10 +3,12 @@
 # Gemfile
 source 'https://rubygems.org'
 
-gem 'credit_card_verification'
 gem 'grape'
+gem 'pg'
 gem 'rack'
 gem 'rake'
 gem 'rspec'
 gem 'rubocop'
+gem 'sequel'
+gem 'thin'
 gem 'time'
