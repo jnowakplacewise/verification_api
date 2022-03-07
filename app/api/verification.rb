@@ -2,6 +2,7 @@
 
 require 'grape'
 require 'time'
+require 'json'
 require 'credit/verificator'
 require_relative 'postgres_connector'
 
@@ -34,7 +35,7 @@ module API
 
       query = db_handler.insert_card(card)
 
-      result
+      JSON.generate({ provider: result })
     end
 
     get :all do
