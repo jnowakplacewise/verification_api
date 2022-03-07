@@ -1,10 +1,14 @@
 # VERIFICATION API
 Simple Grape API that allows verify credit card code using Luhn algorithm.
 ## Installation:
-Run
+Run via docker-compose or Rakefile (in this case the unittests for API will be executed)
 ```
 docker-compose up -d
 ```
+```
+rake all
+```
+
 Then two services will start:
 1. Postgres database for verification logs.
 2. Verification API
@@ -27,7 +31,3 @@ Go to postman/web-browser or use curl
 ```http://localhost:9292/verify?id=<provide_here_any_id>&code=<provide_here_code>&owner=<provide_here_owner>```
 ![alt text](./screenshots/visa.png)
 ![alt text](./screenshots/invalid.png)
-
-#### Get logs
-```http://localhost:9292/all```
-![alt text](./screenshots/all.png)
